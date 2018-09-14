@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: docker-build-pod
+spec:
+  containers:
+  - name: vke-kubectl
+    image: jefferyfry/vke-kubectl:latest
+    command:
+    - cat
+    tty: true    
+  - name: docker
+    image: docker:latest
+    imagePullPolicy: Always
+    command:
+    - cat
+    tty: true
+    volumeMounts:
+    - mountPath: /var/run/docker.sock
+      name: docker-sock
+  restartPolicy: Never
+  volumes:
+   - name: docker-sock
+     hostPath:
+      path: /var/run/docker.sock
