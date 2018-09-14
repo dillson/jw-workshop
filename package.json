@@ -1,0 +1,17 @@
+{
+  "name": "jw-workshop",
+  "version": "1.0.0",
+  "description": "workshop test",
+  "main": "index.js",
+  "dependencies": {
+    "express-handlebars": "^3.0.0",
+    "express": "^4.16.3",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
