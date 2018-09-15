@@ -30,6 +30,7 @@ pipeline {
             sh "vke account login -t ${env.orgID} -r ${env.apiToken}"
             sh '''
                  vke cluster merge-kubectl-auth cloudbees-ingress
+		 kubectl delte namespace jw-workshop || true
                  sleep 5
                  kubectl create namespace jw-workshop
                  kubectl run jw-workshop-build --image=dillson/jw-workshop:latest --port 8080 --namespace jw-workshop
