@@ -1,14 +1,14 @@
 FROM node:8
 
-WORKDIR /
+WORKDIR /app
 
 USER root
 
-COPY package*.json ./
+COPY package*.json /app
 
 RUN npm install
 
-COPY . .
+COPY . /app
 
 CMD [ "node", "index.js" ]
 
