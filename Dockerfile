@@ -6,13 +6,11 @@ WORKDIR /app
 
 USER root
 
-COPY package*.json /app
+COPY package*.json /app/
 
 RUN npm install --silent
 
 COPY . /app
-COPY ./public /app/public
-COPY ./views /app/views
 
 CMD [ "node", "index.js" ]
 
