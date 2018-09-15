@@ -2,6 +2,8 @@ from node:8
 
 WORKDIR /
 
+USER root
+
 COPY package*.json ./
 
 RUN npm install
