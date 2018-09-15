@@ -10,7 +10,7 @@ spec:
     - cat
     tty: true    
   - name: docker
-    image: docker:1.11
+    image: jenkins/jnlp-slave:latest
     imagePullPolicy: Always
     command:
     - cat
