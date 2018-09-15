@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Docker Build') {
       steps {
-        withDockeCcontainer('docker'){
+        withDockeContainer('docker'){
           sh 'docker build -t dillson/jw-workshop:latest .'
         }
       }
