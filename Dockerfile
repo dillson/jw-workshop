@@ -1,12 +1,14 @@
 FROM node:8
 
+RUN mkdir /app
+
 WORKDIR /app
 
 USER root
 
 COPY package*.json /app
 
-RUN npm install
+RUN npm install --silent
 
 COPY . /app
 
