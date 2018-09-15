@@ -8,7 +8,7 @@ USER root
 
 COPY package*.json /app/
 
-RUN npm install --silent
+RUN npm install --silent && npm cache clean --force
 
 COPY . /app
 
