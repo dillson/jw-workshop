@@ -6,20 +6,17 @@ spec:
   containers:
   - name: vke-kubectl
     image: jefferyfry/vke-kubectl:latest
-    command:
-    - cat
+    command: ['cat']
     tty: true    
   - name: docker
-    image: jenkins/jnlp-slave:latest
+    image: docker:1.11
     imagePullPolicy: Always
-    command:
-    - cat
+    command: ['cat']
     tty: true
     volumeMounts:
     - mountPath: /var/run/docker.sock
-      name: docker-sock
-  restartPolicy: Never
+      name: dockersock
   volumes:
-   - name: docker-sock
+   - name: dockersock
      hostPath:
       path: /var/run/docker.sock
