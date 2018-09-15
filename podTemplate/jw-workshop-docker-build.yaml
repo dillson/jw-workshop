@@ -10,7 +10,7 @@ spec:
     - cat
     tty: true    
   - name: docker
-    image: docker:latest
+    image: docker:1.11
     imagePullPolicy: Always
     command:
     - cat
