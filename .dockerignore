@@ -1,3 +1,7 @@
 node_modules
 npm-debug.log
 logs/*
+Jenkinsfile
+README.md
+podTemplate/*
+deployFiles/*
