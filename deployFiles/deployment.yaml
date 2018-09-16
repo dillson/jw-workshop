@@ -21,4 +21,4 @@ spec:
         name: jw-workshop-node
         ports:
         - containerPort: 8080
-          name: jw-workshop-node
+          name: web-port
