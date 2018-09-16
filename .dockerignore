@@ -4,4 +4,3 @@ logs/*
 Jenkinsfile
 README.md
 podTemplate/*
-deployFiles/*

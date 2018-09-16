@@ -33,8 +33,8 @@ pipeline {
 		 kubectl delete namespace jw-workshop || true
                  sleep 5
                  kubectl create namespace jw-workshop
-                 kubectl run jw-workshop-docker-build --image=dillson/jw-workshop:latest --port 8080 --namespace jw-workshop
-                 kubectl expose deployment -n jw-workshop jw-workshop-docker-build --type=NodePort --nodePort 30480 --name=jw-workshop-svc
+		 kubectl create -f deployFiles/deployment.yaml
+		 kubectl create -f deployFiles/service.yaml
                  echo "Node Server Launched!"
             '''
           }
