@@ -33,8 +33,8 @@ pipeline {
 		 kubectl delete namespace jw-workshop || true
                  sleep 5
                  kubectl create namespace jw-workshop
-		 kubectl create -f deployFiles/deployment.yaml
-		 kubectl create -f deployFiles/service.yaml
+		 kubectl create -n jw-workshop -f deployFiles/deployment.yaml
+		 kubectl create -n jw-workshop -f deployFiles/service.yaml
                  echo "Node Server Launched!"
             '''
           }
