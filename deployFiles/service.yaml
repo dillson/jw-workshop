@@ -11,5 +11,5 @@ spec:
       port: 8080
       nodePort: 30400
   selector:
-    app: jw-workshop-node
+    app: jw-workshop
   type: NodePort
