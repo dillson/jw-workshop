@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: docker-build-pod
+spec:
+  containers:
+  - name: vke-kubectl
+    image: jefferyfry/vke-kubectl:latest
+    command: ['cat']
+    tty: true    
+  - name: kaniko
+    image: gcr.io/kaniko-project/executor:debug
+    imagePullPolicy: Always
+    command: ['busybox/cat']
+    tty: true
+    volumeMounts:
+     - name: kaniko-secret
+       mountPath: /secret
+    env:
+     - name: GOOGLE_APPLICATION_CREDENTIALS
+       value: /secret/kaniko-secret.json
+  restartPolicy: Never
+  volumes:
+   - name: kaniko-secret
+     secret:
+       secretName: kaniko-secret
