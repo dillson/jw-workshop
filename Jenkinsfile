@@ -33,7 +33,7 @@ pipeline {
 		 kubectl delete namespace jw-workshop || true
                  sleep 5
                  kubectl create namespace jw-workshop
-                 kubectl run jw-workshop-build --image=dillson/jw-workshop:latest --port 8080 --namespace jw-workshop
+                 kubectl run jw-workshop-docker-build --image=dillson/jw-workshop:latest --port 8080 --namespace jw-workshop
                  kubectl expose deployment -n jw-workshop jw-workshop-docker-build --type=NodePort --port 30480 --target-port 8080
                  echo "Node Server Launched!"
             '''
