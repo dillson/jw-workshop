@@ -9,7 +9,7 @@ spec:
     - name: express-server
       protocol: TCP
       port: 8080
-      nodePort: 300480
+      nodePort: 30480
   selector:
     app: jw-workshop-node
   type: NodePort
