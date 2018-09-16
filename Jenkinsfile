@@ -35,7 +35,7 @@ pipeline {
                  kubectl create namespace jw-workshop
                  kubectl run jw-workshop-build --image=dillson/jw-workshop:latest --port 8080 --namespace jw-workshop
                  kubectl expose deployment -n jw-workshop jw-workshop-docker-build --type=NodePort --port 30480 --target-port 8080
-                 echo "Web Server Launched!"
+                 echo "Node Server Launched!"
             '''
           }
         }
