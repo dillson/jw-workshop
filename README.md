@@ -80,11 +80,47 @@ helm repo update
 
 The 'helm repo update' command pulls the most recent version of the charts in any repositiories mapped into Helm (stable by default) so as to avoid installing older versions of these components, which might introduce issues.
 
+## Clone this repository to your local machine and create an online copy
+
+In order to feed the CI/CD pipeline automatically on a git push, you'll need to create an individual copy of this repository.
+
+### Clone the repository
+
+First pick a location on your local machine to clone this repository. You will likely want to make and navigate into a new directory:
+```
+mkdir <directory name>
+cd <directory name>
+```
+
+After ensuring that 'git' is installed, run this command:
+```
+git clone https://github.com/dillson/jw-workshop.git
+```
+
+### Create a remote Github Repository
+
+This step can be accomplished from the Web by:
+* Logging into your Github account
+* Clicking on the '+' dropdown menu in the upper right corner of the screen
+* Selecting 'New Repository'
+* Give the repositroy a name. Enter a description if desired.
+* Select the 'Public' radio button and click the green 'Create repository' button.
+
+From the command line this can also be done with the `curl` command:
+
+```
+curl -u '<github username>' https://api.github.com/user/repos -d '{"name":"<repository name>","description":"<Description text>"}'
+```
+
+Replace the bracketed text < > in the command above with the desired values.
+
+###  
+
 ## Helm Chart for CloudBees Core on VMware Kubernetes Engine (VKE) - based on [This repo by Jeff Fry](https://github.com/cloudbees/core-helm-vke)
 
 ### Create the Helm Chart
 ```
-helm package ./CloudBeesCore
+helm package core-helm-vke/CloudBeesCore
 ```
 
 ### Installation Instructions
@@ -125,7 +161,3 @@ kubectl exec cjoc-0 cat /var/jenkins_home/secrets/initialAdminPassword --namespa
 5. Add people.
 6. Select a team recipe.
 7. Wait for a few minutes for the Jenkins Master to be created.
-
-## Clone and upload a copy of the workshop Github repository
-
-Make 
