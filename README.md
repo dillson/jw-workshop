@@ -102,8 +102,9 @@ A copy of this repository will then be forked into your account
 
 First pick a location on your local machine to clone the forked repository.
 
-After ensuring that 'git' is installed, run this command:
+After ensuring that 'git' is installed, run these commands:
 ```
+cd jw-workshop
 git clone https://github.com/<your username>/jw-workshop.git
 ```
 Comgratulations, you know have a local copy of this repository. It will be in a folder labeled 'jw-workshop'
@@ -133,7 +134,7 @@ These commands add, commit, and push these changes to your online repository for
 
 From folder 'jw-workshop' (root of the cloned repository), run:
 ```
-helm package core-helm-vke/cloudbeescore
+helm package core-helm-vke/CloudBeesCore
 ```
 
 ### Installation Instructions
