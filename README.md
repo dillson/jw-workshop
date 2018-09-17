@@ -204,3 +204,20 @@ Return to the main screen of the Cloudbees Jenkins Operations Center by using th
 
 ### Configure Github Webook
 
+Return to the main screen of the Cloudbees Jenkins Operations Center by using the horizontal navigation bar at the top of the screen again. Click on the leftmost entry 'Jenkins'
+
+1. From the vertical navigation bar on the left edge of the screen, select 'Manage Jenkins' -> 'Configure System'
+2. Scroll down until you come to the 'Github' section of the conifg
+3. Click the button for 'Add GitHub Server'
+4. The API URL text field should read, 'https://api.github.com'. If not, please edit it to that value
+5. Ensure that the 'Manage Hooks' box is checked.
+6. Locate the bottommost 'Advanced' button in the GitHub section.
+7. In the 'Additional Actions' sub section, click the 'Manage additional GitHub actions' dropdown and the 'Convert login and password to token' option
+8. Select the radio button for 'From login and password'
+9. Enter your Github username and password, then click the 'Create token credentials' button.
+10. Click the 'Apply' button at the bottom of the screen.
+11. Under the 'API URL' text field at the top of the GitHub section, there is a credentials dropdown. Select the credential you just created. It will start with 'Github (https://api.github.com) auto generated token credentials'.
+12. Click the 'Apply' button at the bottom of the screen.
+13. In the 'Shared Secret' dropdown menu, select the same option as 'Credentials' dropdown above.
+14. Click the 'Apply' button at the bottom of the screen. Then click the 'Save' button.
+
