@@ -218,13 +218,13 @@ Return to the main screen of the Cloudbees Jenkins Operations Center by using th
 5. From the vertical nav bar on the left edge of the screen, click 'Add Credentials'
 6. Select 'Username with password' from the 'Kind' dropdown menu at the top of the screen.
 7. Leave 'Scope' set to Global
-8. In the Username field, enter your dockerhub user name. In Password, enter your dockerhub password. For ID and description, you must use 'dockerhub'
+8. In the Username field, enter your dockerhub user name. In Password, enter your dockerhub password. **For ID and description, you must use 'dockerhub'**
 9. Click 'OK'
 10. Click 'Add Credentials' from the vertical navigation bar again.
 11. Use 'Username with password' from the 'Kind' dropdown menu. Use 'Global' as the scope.
 12. For username, use your VKE orgnaization ID from the cluster provisioning stage.
 13. For password, use your VKE API/refresh token noted down during VKE cli login.
-14. For ID, you must use 'VCS'. Add a relevant description for your reference.
+14. **For ID, you must use 'VCS'.** Add a relevant description for your reference.
 15. Click 'OK'
 
 ### Pipeline setup
