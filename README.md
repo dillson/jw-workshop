@@ -167,7 +167,7 @@ statefulset rolling update complete 1 pods at revision cjoc-59cc694b8b...
 ```
 kubectl exec cjoc-0 cat /var/jenkins_home/secrets/initialAdminPassword --namespace cloudbees
 ```
-10. Follow the instructions in the setup wizard. Request a trial license. Select the 'Install selected plugins' option.
+10. Follow the instructions in the setup wizard. Request a trial license. Select the 'Install selected plugins' option. If prompted for an 'Operations Center Upgrade', please ignore and continue without it.
 
 ## Cloudbees configuration and pipeline creation
 
