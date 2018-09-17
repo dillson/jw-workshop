@@ -116,6 +116,15 @@ sed -i 's/cb-test-59/<your cluster name>/g' Jenkinsfile
 
 The cluster name is whatever you named your VKE cluster during the VKE cluster provisioning steps previously.
 
+Now run:
+```
+git add Jenkinsfile
+git commit -m 'altered Jenkinsfile for my parameters'
+git push -u origin master
+```
+
+These commands add, commit, and push these changes to your online repository for the pipeline to read later
+
 ## Helm Chart for CloudBees Core on VMware Kubernetes Engine (VKE) - based on [This repo by Jeff Fry](https://github.com/cloudbees/core-helm-vke)
 
 ### Create the Helm Chart
@@ -196,6 +205,10 @@ kubectl exec cjoc-0 cat /var/jenkins_home/secrets/initialAdminPassword --namespa
 2. From the vertical navigation bar on the left edge of the screen, select 'Manage Jenkins' -> 'Manage Plugins'
 3. Select the 'Available' tab from the top of the main panel. Then search down the list for 'GitHub plugin'. Check the box for this plugin, then click the 'Install without restart' button at the bottom of the screen
 
+### Configure credentials
+
+
+
 ### Pipeline setup
 
 Return to the main screen of the Cloudbees Jenkins Operations Center by using the horizontal navigation bar at the top of the screen again. Click on the leftmost entry 'Jenkins'
@@ -211,6 +224,20 @@ Return to the main screen of the Cloudbees Jenkins Operations Center by using th
 9. Ensure the 'Credentials' dropdown menu value is '- none -'.
 10. Locate the 'Script Path' text field menu and enter 'Jenkinsfile'
 11. Click 'Apply', the 'Save' at the bottom of the screen.
+
+### Execute the pipeline once to validate functionality
+
+From the Pipeline status screen (reached by navigating to your pipeline and using the vertical nav bar at the left).
+Once here, click the 'Build Now' link in the vertical nav bar on the left edge of the screen to execute the pipeline once on-demand.
+
+### Access the app to validate
+
+1. On your local machine, run : `vke cluster show <cluster name>`.
+2. Look for the 'Address:' line, then copy the URL displayed on that line.
+3. In your browser, navigate to `http://<address value>:30400`
+4. You should be on the root web page of an express (node.js) app welcoming you to the workshop. There are also 2 subpages:
+  * /vke
+  * /cloudbees
 
 ### Configure Github Webook
 
