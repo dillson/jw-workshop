@@ -202,3 +202,5 @@ Return to the main screen of the Cloudbees Jenkins Operations Center by using th
 10. Locate the 'Script Path' text field menu and enter 'Jenkinsfile'
 11. Click 'Apply', the 'Save' at the bottom of the screen.
 
+### Configure Github Webook
+
