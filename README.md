@@ -80,6 +80,9 @@ helm repo update
 
 The 'helm repo update' command pulls the most recent version of the charts in any repositiories mapped into Helm (stable by default) so as to avoid installing older versions of these components, which might introduce issues.
 
+The `helm init` command will take a couple of minutes to run on the VKE cluster as it will cause the cluster to scale up and add a worker node.
+This is expected, please move on to the 
+
 ## Clone this repository to your local machine and create an online copy
 
 In order to feed the CI/CD pipeline automatically on a git push, you'll need to create an individual copy of this repository.
@@ -87,9 +90,9 @@ In order to feed the CI/CD pipeline automatically on a git push, you'll need to 
 ### Fork this repository
 
 In order to have your own working copy of this repository, you'll want to fork it into your account.
-* First navigate to [http://github.com] and login to your account
-* Then navigate to the page for this repository [https://github.com/dillson/jw-workshop]
-* In the upper-right hand section of the screen, click on the button labeled 'Fork'
+1. First navigate to [http://github.com] and login to your account
+2. Then navigate to the page for this repository [https://github.com/dillson/jw-workshop]
+3. In the upper-right hand section of the screen, click on the button labeled 'Fork'
 
 A copy of this repository will then be forked into your account
 
@@ -109,38 +112,61 @@ Comgratulations, you know have a local copy of this repository. It will be in a 
 
 From folder 'jw-workshop' (root of the cloned repository), run:
 ```
-helm package core-helm-vke/CloudBeesCore
+helm package core-helm-vke/cloudbeescore
 ```
 
 ### Installation Instructions
 
-1. Choose a ```<cloudbees namespace>``` for CloudBees Core. 'cloudbees' is the recommended value.
-2. Install an Ingress Controller fron the [stable helm chart](https://github.com/helm/charts/tree/master/stable/nginx-ingress).
+1. Install Helm if not already installed.
 ```
-helm install --namespace ingress-nginx --name nginx-ingress stable/nginx-ingress --set rbac.create=true --set controller.service.externalTrafficPolicy=Local            --set controller.scope.enabled=true --set controller.scope.namespace=<cloudbees namespace>
+helm init
 ```
-3. Wait for the _Load Balancer Ingress_ hostname.
+
+2. Wait for the tiller pod to come up. This may take a few minutes.
+```
+kubectl -n kube-system get pods
+```
+```
+NAME                             READY     STATUS    RESTARTS   AGE
+tiller-deploy-5c688d5f9b-l27kk   1/1       Running   0          3m
+```
+3. Create a namespace for CloudBees Core to be installed in. 
+
+```
+kubectl create namespace cloudbees
+```
+
+4. Install an Nginx Ingress Controller with Helm. Ensure you specify the controller scope using the cloudbees namespace
+```
+kubectl create namespace ingress-nginx
+```
+```
+kubectl create clusterrolebinding nginx-ingress-cluster-rule --clusterrole=cluster-admin --serviceaccount=ingress-nginx:nginx-ingress
+```
+```
+helm install --namespace ingress-nginx --name nginx-ingress stable/nginx-ingress --version 0.23.0 --set rbac.create=true --set controller.service.externalTrafficPolicy=Local --set controller.scope.enabled=true --set controller.scope.namespace=cloudbees
+```
+4. Wait for the _Load Balancer Ingress_ hostname. This may take a few minutes.
 ```
 kubectl describe service nginx-ingress-controller -n ingress-nginx
 ```
-4. Install CloudBees Core.
+5. Install CloudBees Core. The <lb-ingress-hostname> value is included in the output of the previous command.
 ```
-helm install cloudbeescore --set cjocHost=<lb-ingress-hostname> --namespace <cloudbees namespace>
+helm install cloudbeescore --set cjocHost=<lb-ingress-hostname> --namespace cloudbees
 ```
-5. Monitor the progress.
+6. Monitor the progress.
 ```
-kubectl rollout status sts cjoc --namespace <cloubees namespace>
+kubectl rollout status sts cjoc --namespace cloudbees
 ```
-6. Wait for success message.
+7. Wait for success message.
 ```
 statefulset rolling update complete 1 pods at revision cjoc-59cc694b8b...
 ```
-7. Go to ```http://<lb-ingress-hostname>/cjoc```
-8. Get the initial admin password.
+8. Go to ```http://<lb-ingress-hostname>/cjoc```
+9. Get the initial admin password.
 ```
-kubectl exec cjoc-0 cat /var/jenkins_home/secrets/initialAdminPassword --namespace <cloudbees namespace>
+kubectl exec cjoc-0 cat /var/jenkins_home/secrets/initialAdminPassword --namespace cloudbees
 ```
-9. Follow the instructions in the setup wizard. Request a trial license and fill in the short form.
 
 ## Cloudbees configuration and pipeline creation
 
@@ -154,4 +180,13 @@ kubectl exec cjoc-0 cat /var/jenkins_home/secrets/initialAdminPassword --namespa
 7. Wait for a few minutes for the Jenkins Master to be created.
 
 ### Jenkins Plugin Configuration
+
+1. Use the horizontal navigation bar at the top of the screen to navigate to the leftmost 'Jenkins'
+2. From the vertical navigation bar on the left edge of the screen, select 'Manage Jenkins' -> 'Manage Plugins'
+3. Select the 'Available' tab from the top of the main panel. Then search down the list for 'GitHub plugin'. Check the box for this plugin, then click the 'Install without restart' button at the bottom of the screen
+
+### Pipeline setup
+
+Return to the main screen of the Cloudbees Jenkins Operations Center by using the horizontal navigation bar at the top of the screen again. Click on the leftmost entry 'Jenkins'
+
 
