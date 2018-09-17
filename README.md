@@ -177,7 +177,7 @@ kubectl exec cjoc-0 cat /var/jenkins_home/secrets/initialAdminPassword --namespa
 2. Follow the team creation wizard.
 3. Specify a name for team.
 4. Choose an icon.
-5. Select a team recipe.
+5. Select the 'Basic' team recipe.
 6. Wait for a few minutes for the Jenkins Master to be created.
 
 ### Jenkins Plugin Configuration
