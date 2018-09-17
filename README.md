@@ -167,6 +167,7 @@ statefulset rolling update complete 1 pods at revision cjoc-59cc694b8b...
 ```
 kubectl exec cjoc-0 cat /var/jenkins_home/secrets/initialAdminPassword --namespace cloudbees
 ```
+10. 10. Follow the instructions in the setup wizard. Request a trial license.
 
 ## Cloudbees configuration and pipeline creation
 
@@ -192,5 +193,5 @@ Return to the main screen of the Cloudbees Jenkins Operations Center by using th
 1. Click on the 'Teams >> {name}' link in the middle of the main panel. The name will be the value you specified when creating a team earlier.
 2. From the vertical navigation bar on the left edge of the screen, click 'New Item'
 3. Select the 'Pipeline' type from the list. Be sure to give it a name. Then click the 'OK' button at the bottom of the screen.
-4. On the following screen, Check the box in the 'General' section reading 'GitHub Project'. A text box will then appear and ask for the project URL. Use the URL of **your** forked Github repository. Likely of the form, https://github.com/<username>/jw-workshop.
+4. On the following screen, Check the box in the 'General' section reading 'GitHub Project'. A text box will then appear and ask for the project URL. Use the URL of **your** forked Github repository. Likely of the form, "github.com/'username'/jw-workshop".
 5. Under the 'Build Triggers' section, check the box labeled 'GitHub hook trigger for GITScm polling'. This will enable the desired 'build on git push' behavior.
