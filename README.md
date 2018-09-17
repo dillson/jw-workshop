@@ -146,13 +146,13 @@ kubectl create clusterrolebinding nginx-ingress-cluster-rule --clusterrole=clust
 ```
 helm install --namespace ingress-nginx --name nginx-ingress stable/nginx-ingress --version 0.23.0 --set rbac.create=true --set controller.service.externalTrafficPolicy=Local --set controller.scope.enabled=true --set controller.scope.namespace=cloudbees
 ```
-4. Wait for the _Load Balancer Ingress_ hostname. This may take a few minutes.
+4. Wait for the _Load Balancer Ingress_ field to populate. This is the hostname that will be used in the next step. This may take a few minutes and require multiple runs before the value populates.
 ```
 kubectl describe service nginx-ingress-controller -n ingress-nginx
 ```
 5. Install CloudBees Core. The <lb-ingress-hostname> value is included in the output of the previous command.
 ```
-helm install cloudbeescore --set cjocHost=<lb-ingress-hostname> --namespace cloudbees
+helm install core-helm-vke/cloudbeescore --set cjocHost=<lb-ingress-hostname> --namespace cloudbees
 ```
 6. Monitor the progress.
 ```
