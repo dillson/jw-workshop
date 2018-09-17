@@ -44,10 +44,12 @@ On the resulting page, please select 'API tokens' the third option in the horizo
 
 To create a VKE cluster, run the following command:
 ```yaml
-vke cluster create --name <name> --region <region> -f sharedfolder -pr sharedproject
+vke cluster create --name <cluster name> --region us-west-2 -f sharedfolder -pr sharedproject -v 1.10.2-59 --privilegedMode
 ```
 
 For region please use the value 'us-west-2'
+
+You will be asked to acknowledge the creation of a piviliged mode Kubernetes cluster. Please enter 'Y' at the prompt.
 
 ### Get Kubectl and Helm
 
