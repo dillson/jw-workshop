@@ -14,7 +14,7 @@ In order to successfully complete this workshop, you will need:
 2. [A github account](https://github.com/)
 3. The [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) command line package configured within the shell 
 4. The kubectl utility installed (this can be installed from the VKE UI)
-5. [Helm installed](https://docs.helm.sh/using_helm/#installing-helm) 
+5. [Helm](https://docs.helm.sh/using_helm/#installing-helm) installed
 6. A login for the VMware Kubernetes Engine service (provided at check-in)
 
 If you need to install any of the prerequsites or signup for a github account, this can be done while the VMware Kubernetes Engine cluster is being built or the Cloudbees core components/Jenkins master are being provisioned.
@@ -126,7 +126,8 @@ git commit -m 'altered Jenkinsfile for my parameters'
 git push -u origin master
 ```
 
-These commands add, commit, and push these changes to your online repository for the pipeline to read later
+These commands add, commit, and push these changes to your online repository for the pipeline to read later.
+**Stay in this folder for the next steps**
 
 ## Helm Chart for CloudBees Core on VMware Kubernetes Engine (VKE) - based on [This repo by Jeff Fry](https://github.com/cloudbees/core-helm-vke)
 
@@ -201,6 +202,7 @@ kubectl exec cjoc-0 cat /var/jenkins_home/secrets/initialAdminPassword --namespa
 4. Choose an icon.
 5. Select the 'Basic' team recipe.
 6. Wait for a few minutes for the Jenkins Master to be created.
+7. Use the button just to the left of the 'Logout' button that looks like an exit sign to reach the classic Jenkins UI. The alt-text for this button is 'Go to classic.'
 
 ### Jenkins Plugin Configuration
 
