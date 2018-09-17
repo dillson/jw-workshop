@@ -12,10 +12,11 @@ In order to successfully complete this workshop, you will need:
 
 1. A terminal shell (preferably bash) or emulator
 2. [A github account](https://github.com/)
-3. The [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) command line package configured within the shell 
-4. The kubectl utility installed (this can be installed from the VKE UI)
-5. [Helm](https://docs.helm.sh/using_helm/#installing-helm) installed
-6. A login for the VMware Kubernetes Engine service (provided at check-in)
+3. [A Docker Hub account](https://hub.docker.com/) 
+4. The [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) command line package configured within the shell 
+5. The kubectl utility installed (this can be installed from the VKE UI)
+6. [Helm](https://docs.helm.sh/using_helm/#installing-helm) installed
+7. A login for the VMware Kubernetes Engine service (provided at check-in)
 
 If you need to install any of the prerequsites or signup for a github account, this can be done while the VMware Kubernetes Engine cluster is being built or the Cloudbees core components/Jenkins master are being provisioned.
 
