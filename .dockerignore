@@ -4,3 +4,4 @@ logs/*
 Jenkinsfile
 README.md
 podTemplate/*
+core-helm-vke/*

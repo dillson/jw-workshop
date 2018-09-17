@@ -25,7 +25,7 @@ Please follow the links above for instructions to install or request the prerequ
 
 ### Login to VKE UI and Download the CLI package
 
-Download the CLI package from the button in the bottom left corner of the screen labeled 'Download CLI' and slecting the correct operating system. Make sure it has execute permissions.
+Download the CLI package from the button in the bottom left corner of the screen labeled 'Download CLI' and select the correct operating system. Make sure it has execute permissions.
 
 ### Login to the VKE CLI
 
@@ -84,41 +84,30 @@ The 'helm repo update' command pulls the most recent version of the charts in an
 
 In order to feed the CI/CD pipeline automatically on a git push, you'll need to create an individual copy of this repository.
 
+### Fork this repository
+
+In order to have your own working copy of this repository, you'll want to fork it into your account.
+* First navigate to [http://github.com] and login to your account
+* Then navigate to the page for this repository [https://github.com/dillson/jw-workshop]
+* In the upper-right hand section of the screen, click on the button labeled 'Fork'
+
+A copy of this repository will then be forked into your account
+
 ### Clone the repository
 
-First pick a location on your local machine to clone this repository. You will likely want to make and navigate into a new directory:
-```
-mkdir <directory name>
-cd <directory name>
-```
+First pick a location on your local machine to clone the forked repository.
 
 After ensuring that 'git' is installed, run this command:
 ```
-git clone https://github.com/dillson/jw-workshop.git
+git clone https://github.com/<your username>/jw-workshop.git
 ```
-
-### Create a remote Github Repository
-
-This step can be accomplished from the Web by:
-* Logging into your Github account
-* Clicking on the '+' dropdown menu in the upper right corner of the screen
-* Selecting 'New Repository'
-* Give the repositroy a name. Enter a description if desired.
-* Select the 'Public' radio button and click the green 'Create repository' button.
-
-From the command line this can also be done with the `curl` command:
-
-```
-curl -u '<github username>' https://api.github.com/user/repos -d '{"name":"<repository name>","description":"<Description text>"}'
-```
-
-Replace the bracketed text < > in the command above with the desired values.
-
-###  
+Comgratulations, you know have a local copy of this repository. It will be in a folder labeled 'jw-workshop'
 
 ## Helm Chart for CloudBees Core on VMware Kubernetes Engine (VKE) - based on [This repo by Jeff Fry](https://github.com/cloudbees/core-helm-vke)
 
 ### Create the Helm Chart
+
+From folder 'jw-workshop' (root of the cloned repository), run:
 ```
 helm package core-helm-vke/CloudBeesCore
 ```
@@ -153,6 +142,8 @@ kubectl exec cjoc-0 cat /var/jenkins_home/secrets/initialAdminPassword --namespa
 ```
 9. Follow the instructions in the setup wizard. Request a trial license and fill in the short form.
 
+## Cloudbees configuration and pipeline creation
+
 ### Team Onboarding
 1. Click on the _Teams_ menu item.
 2. Follow the team creation wizard.
@@ -161,3 +152,6 @@ kubectl exec cjoc-0 cat /var/jenkins_home/secrets/initialAdminPassword --namespa
 5. Add people.
 6. Select a team recipe.
 7. Wait for a few minutes for the Jenkins Master to be created.
+
+### Jenkins Plugin Configuration
+
