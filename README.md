@@ -195,3 +195,10 @@ Return to the main screen of the Cloudbees Jenkins Operations Center by using th
 3. Select the 'Pipeline' type from the list. Be sure to give it a name. Then click the 'OK' button at the bottom of the screen.
 4. On the following screen, Check the box in the 'General' section reading 'GitHub Project'. A text box will then appear and ask for the project URL. Use the URL of **your** forked Github repository. Likely of the form, "github.com/'username'/jw-workshop".
 5. Under the 'Build Triggers' section, check the box labeled 'GitHub hook trigger for GITScm polling'. This will enable the desired 'build on git push' behavior.
+6. In the 'Pipeline' section, location the 'Definition' dropdown menu. In that dropdown, select 'Pipeline script from SCM'
+7. From the 'SCM' sub dropdown menu, select 'Git'
+8. In the 'Repositor URL' text field, enter the URL of your forked repository. 
+9. Ensure the 'Credentials' dropdown menu value is '- none -'.
+10. Locate the 'Script Path' text field menu and enter 'Jenkinsfile'
+11. Click 'Apply', the 'Save' at the bottom of the screen.
+
