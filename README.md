@@ -127,6 +127,7 @@ git push -u origin master
 ```
 
 These commands add, commit, and push these changes to your online repository for the pipeline to read later.
+
 **Stay in this folder for the next steps**
 
 ## Helm Chart for CloudBees Core on VMware Kubernetes Engine (VKE) - based on [This repo by Jeff Fry](https://github.com/cloudbees/core-helm-vke)
