@@ -106,6 +106,16 @@ git clone https://github.com/<your username>/jw-workshop.git
 ```
 Comgratulations, you know have a local copy of this repository. It will be in a folder labeled 'jw-workshop'
 
+### Edit the Jenkinsfile
+
+From the cloned repo root folder, run the following commands:
+```
+sed -i 's/dillson/<your dockerhub username>/g' Jenkinsfile
+sed -i 's/cb-test-59/<your cluster name>/g' Jenkinsfile
+```
+
+The cluster name is whatever you named your VKE cluster during the VKE cluster provisioning steps previously.
+
 ## Helm Chart for CloudBees Core on VMware Kubernetes Engine (VKE) - based on [This repo by Jeff Fry](https://github.com/cloudbees/core-helm-vke)
 
 ### Create the Helm Chart
