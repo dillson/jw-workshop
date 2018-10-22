@@ -118,7 +118,7 @@ From the cloned repo root folder, run the following command:
 sed -i 's/dillson/<your dockerhub username>/g' deployFiles/deployment.yaml
 ```
 
-This will alter the deployment file to use the comtainer image from your personal repositroy rather than from mine. This will be important while iterating on the express code later. 
+This will alter the deployment file to use the comtainer image from your personal repository rather than from mine. This will be important while iterating on the express code later. 
 
 ### Edit the Jenkinsfile
 
