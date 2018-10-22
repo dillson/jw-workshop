@@ -109,6 +109,16 @@ git clone https://github.com/<your username>/jw-workshop.git
 ```
 Comgratulations, you know have a local copy of this repository. It will be in a folder labeled 'jw-workshop'
 
+### Edit deployment.yaml
+
+From the cloned repo root folder, run the following command:
+
+```
+sed -i 's/dillson/<your dockerhub username>/g' deployFiles/deployment.yaml
+```
+
+This will alter the deployment file to use the comtainer image from your personal repositroy rather than from mine. This will be important while iterating on the express code later. 
+
 ### Edit the Jenkinsfile
 
 From the cloned repo root folder, run the following commands:
