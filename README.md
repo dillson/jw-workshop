@@ -47,7 +47,7 @@ Copy these values down to a text file, they will be important during Jenkins con
 
 To create a VKE cluster, run the following command:
 ```yaml
-vke cluster create --name <cluster name> --region us-west-2 -f sharedfolder -pr sharedproject -v 1.10.2-59 --privilegedMode
+vke cluster create --name <cluster name> --region us-west-2 -f sharedfolder -pr sharedproject --privilegedMode
 ```
 
 For region please use the value 'us-west-2'
