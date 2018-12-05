@@ -29,7 +29,7 @@ pipeline {
           withCredentials([usernamePassword(credentialsId: 'VCS', usernameVariable: 'orgID', passwordVariable: 'apiToken')]) {
             sh "vke account login -t ${env.orgID} -r ${env.apiToken}"
             sh '''
-                 vke cluster merge-kubectl-auth cb-blog
+                 vke cluster auth setup cb-blog
 		 kubectl delete namespace jw-workshop || true
                  sleep 5
                  kubectl create namespace jw-workshop
